@@ -6,16 +6,16 @@ export function makeServer({ environment = 'development' } = {}) {
     serializers: { application: RestSerializer },
     models: { order: Model, user: Model },
 
-    factories: {
-      order: Factory.extend({
-        type() { return Math.random() > 0.5 ? 'consumables' : 'others' },
-        status() { return 'pending' },
-        createdAt() { return new Date().toISOString() },
-        items() {
-          return [ { id: 'i1', name: 'Sample Item', qty: 2, note: '' } ]
-        }
-      })
-    },
+    // factories: {
+    //   order: Factory.extend({
+    //     type() { return Math.random() > 0.5 ? 'consumables' : 'others' },
+    //     status() { return 'pending' },
+    //     createdAt() { return new Date().toISOString() },
+    //     items() {
+    //       return [ { id: 'i1', name: 'Sample Item', qty: 2, note: '' } ]
+    //     }
+    //   })
+    // },
 
     seeds(server) {
       server.create('user', { id: 'u-admin', name: 'Admin', role: 'admin' })
